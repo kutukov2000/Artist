@@ -1,0 +1,18 @@
+.shortBiography{
+    border: 1px gray solid;
+
+    padding: 1%;
+    margin: 5px;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.shortBiography p{
+    font-size: smaller;
+}
+
+.shortBiography p:last-child{
+    margin-bottom: 0;
+}

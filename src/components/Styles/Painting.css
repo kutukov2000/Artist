@@ -1,0 +1,28 @@
+.painting{
+    width: 20vw;
+    height: fit-content;
+
+    border-radius: 8px; 
+    border: 1px gray solid;
+
+    flex-shrink: 0;
+
+    margin: 5px;
+}
+
+.painting img{
+    height: 50vh;
+    width: 100%;
+
+    border-radius: 8px 8px 0 0; 
+
+    object-fit: cover;
+}
+
+.paintingInfo{
+    padding: 0 8px 8px 8px;
+}
+
+.paintingInfo h3, .paintingInfo p{
+    margin: 0;
+}
