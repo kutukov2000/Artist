@@ -1,0 +1,13 @@
+.FamousWork{
+    padding: 1vh;
+}
+
+.FamousWork>div{
+    gap: 1vh;
+}
+
+.FamousWork img{
+    height: 91vh;
+
+    object-fit: cover;
+}
