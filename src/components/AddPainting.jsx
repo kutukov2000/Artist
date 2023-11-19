@@ -1,47 +1,30 @@
-import { useState } from "react";
+import { useForm } from "react-hook-form";
 import './Styles/AddPainting.css'
 
 function AddPainting({ onAddPicture }) {
-    const [name, setName] = useState('');
-    const [imgSource, setImgSource] = useState('');
-    const [year, setYear] = useState('');
+    const {
+        register, 
+        handleSubmit,
+        reset
+    } = useForm();
 
-    const handleAddPicture = () => {
-        const newPicture = {
-            name,
-            imgSource,
-            year
-        };
-        onAddPicture(newPicture);
-        setName('');
-        setImgSource('');
-        setYear('');
-    };
+    const create = (painting)=>{
+        onAddPicture(painting);
+        reset()
+    }
 
     return (
         <div className="AddPainting">
             <div className="w-65">
                 <h1>Add Picture</h1>
-                <form>
-                    <label htmlFor="name">Name:</label>
-                    <input
-                        type="text"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        required/>
-                    <label htmlFor="url">Image Url:</label>
-                    <input
-                        type="text"
-                        value={imgSource}
-                        onChange={(e) => setImgSource(e.target.value)}
-                        required/>
-                    <label htmlFor="year">Year:</label>
-                    <input
-                        type="text"
-                        value={year}
-                        onChange={(e) => setYear(e.target.value)}
-                        required/>
-                    <button onClick={handleAddPicture}>Submit</button>
+                <form onSubmit={handleSubmit(create)}>
+                    <label>Name:</label>
+                    <input {...register("name")} type="text"/>
+                    <label>Image Url:</label>
+                    <input {...register("imgSource")} type="text"/>
+                    <label>Year:</label>
+                    <input {...register("year")} type="text"/>
+                    <button type="submit">Submit</button>
                 </form>
             </div>
         </div>
